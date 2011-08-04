@@ -16,22 +16,24 @@
 //    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 //this code is for the 16 step Grayhill 22LB22-Q encoders
-//this includes an interupt implementation for two encoders (max amount of hardware interrupts)
-//This link has an implementaion to add more interrupts with some limitations 
+//the encoders require a pull down resistor on pin A and B. Pin C requires 5V  
+//this includes an interupt implementation for two encoders
+//This link explains how to use the interrupts on the arduino that aren't support by the arduino libarry which we are using
 //http://forums.trossenrobotics.com/tutorials/how-to-diy-128/an-introduction-to-interrupts-3248/
-//for the interupt to work the output of the encoder should be XOR together
-//and the output of the XOR be placed in pin 2 (interutt 0) or pin 3 (interupt 1)
-//the two pins should be set bellow in the define statements for the code in the encoder_cheepo
+//the two pins should be in the define statements for the code in the encoder_gray. also inside the interrupts the pins need to be set by port manipulation
+//link:http://www.arduino.cc/en/Reference/PortManipulation
+//the two pins need to be on the same port and preferably next to each other (will require more clock cycles though)
+//only one encoder per port 
 
 //Warnings 
 //Don't know the max speed (rpm) for one or two encoders untill there will be skipped pin jumps.
-//If one value is skipped an increase or decrease of one will happen depending which value is skipped which 
-//could mean a worst case diffrence of 3 from the accutal value of only a difference of one on a best case diffrence
-//Changing direction rapidly can and does create errors. If going in one direction or changing direction 
-//slowly doesn't cause problems even with two encoders.
+//If one value is skipped an increase or decrease of one will happen depending which value is skipped, which 
+//could mean a worst case diffrence of 3 from the accutal value or only a difference of one (best case)
 //Don't know how much other code can run or how well incoming serial data will behave
 //When the count variable reaches the end it will roll over and start count from the max negative value.
-//about 134000000 revolutions (16 ticks per revolution) of the encoder are need to roll over
+//about 134000000 revolutions (16 ticks per revolution) of the encoder are needed to roll over
+//Don't place a print statement inside the interrupt or else there will be a miss count use a seperate function 
+//like print_encod() and call it from the main loop 
 
 //To incorprate this code with the standard robot queue code would require polling the count varialbe
 //and populating the robot queue then deciding how to go from there.
@@ -39,7 +41,7 @@
 //Author: Adrian Birylo
 //Date:   7/28/11
 
-#define BAUD 115200
+#define BAUD 57600
 
 void setup(){
   Serial.begin(BAUD);
@@ -48,5 +50,5 @@ void setup(){
 
 void loop(){
   delay(100);
-  //does nothing interupt managed 
+  print_encod();
 }

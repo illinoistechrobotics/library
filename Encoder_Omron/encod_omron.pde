@@ -18,103 +18,126 @@
 
 #define ENCOD1_PINA 6
 #define ENCOD1_PINB 7
-#define ENCOD1_PINZ 8
 
-#define ENCOD2_PINA 8
-#define ENCOD2_PINB 9
 #define ENCOD2_PINZ 10
+#define ENCOD2_PINA 11
+#define ENCOD2_PINB 12
 
 struct encoder {
   long count;
-  long rev_count;
+  int dir;
   int prev;
-  int prevA;
+};
+
+struct encoder_a {
+  int count;
+  int dir;
+  int prev;
 };
 
 volatile struct encoder encod1;
-volatile struct encoder encod2;
+volatile struct encoder_a encod2;
 
 void encoder_setup(){
   
   pinMode(ENCOD1_PINA, INPUT);
   pinMode(ENCOD1_PINB, INPUT);
-  pinMode(ENCOD1_PINZ, INPUT);
   
+  pinMode(ENCOD2_PINZ, INPUT);
   pinMode(ENCOD2_PINA, INPUT);
   pinMode(ENCOD2_PINB, INPUT);
-  pinMode(ENCOD2_PINZ, INPUT);
+    
+  //not using arduino built in interrupt function for speed reason
+  //this requires to uncommment line 230-240 in WInterrrupt.c in the arduino library
+  //this uses the accutally pin interrupts witch allow more flexiblity but there are only two pins
+  //EICRA = (EICRA & ~((1 << ISC00) | (1 << ISC01))) | (CHANGE << ISC00);
+  //EIMSK |= (1 << INT0);
   
-  attachInterrupt(0, encoder1, CHANGE);
-  attachInterrupt(1, encoder2, CHANGE);
+  //using the pin interrupt vector. don't need to uncomment the interrupt in the arduino library. 
+  //page 69 on the data sheet explains how to set up the interrupts
+  //datasheet: http://www.atmel.com/dyn/resources/prod_documents/doc2545.pdf
+  //arduino pins: http://arduino.cc/en/Hacking/PinMapping168
+  PCMSK2 = (1 << PCINT22) | (1 << PCINT23);  //PIN 6 and 7
+  PCICR |= (1 << PCIE2);
+  
+  PCMSK0 = (1 << PCINT3) | (1 << PCINT4);  //PIN 11 and 12
+  PCICR |= (1 << PCIE0);
   
   encod1.count = 0;
   encod2.count = 0;
   
-  encod1.rev_count = 0;
-  encod2.rev_count = 0;
-  
   encod1.prev = digitalRead(ENCOD1_PINA) << 1;
   encod1.prev |= digitalRead(ENCOD1_PINB);
-  encod1.prevA = digitalRead(ENCOD1_PINA);
   
   encod2.prev = digitalRead(ENCOD2_PINA) << 1;
   encod2.prev |= digitalRead(ENCOD2_PINB);
-  encod2.prevA = digitalRead(ENCOD2_PINA);
 }
 
-void encoder1(){
-  int val;
-  int temp;
+//encoder1 interrupt
+ISR(PCINT2_vect) {
+  int now;
+  int n_dir;
   
   //XOR prevA phase with current phase will tell the direction the encoder moved 0 clockwise 1 counterclockwise 
-  val = encod1.prevA ^ digitalRead(ENCOD1_PINB);
-  encod1.prevA = digitalRead(ENCOD1_PINA);
+  //Using port manipulation to read the pin which is considerably faster than using DigitalRead
+  //the link below explains how port mainpulation works and requires some boolean math and bit shifting
+  //http://www.arduino.cc/en/Reference/PortManipulation 
+  //places the vlaue of the encoder to the lower bits
+  now = (PIND & B11000000) >> 6; //pin 6 and 7
+  n_dir = (encod1.prev & B00000001) ^ ((now & B00000010) >> 1);
   
   //checks to make sure we don't get false reads 
   //the grayhill can trigger the interupt twice between clicks
   //makes sure that the encoder moved from last positions
-  //souldn't be a problem with higher quality encoders 
-  /*temp = encod1.prevA << 1;
-  temp |= digitalRead(ENCOD1_PINB);
-  
-  if(temp == encod1.prev) 
+  //souldn't be a problem with higher quality encoders   
+  if(now == encod1.prev) 
     return;
-  encod1.prev = temp;
-  */
-  if(val){
-    //if(digitalRead(ENCOD1_PINZ))
-    //  encod1.rev_count--;
-    encod1.count--;
-  }
-  else{
-    //if(digitalRead(ENCOD1_PINZ))
-    //  encod1.rev_count++;
-    encod1.count++;  
-  }
+  encod1.prev = now;
   
-//  Serial.print("A ");
-  Serial.println(encod1.count);
+  if(n_dir)
+    encod1.count--;
+  else
+    encod1.count++;
+  
+  encod1.dir = n_dir;  
 }
 
-void encoder2(){
-  int val;
-  int temp;
+//this is angle only so the count will be between 0 and 1999
+ISR(PCINT0_vect) {
+  int now;
+  int n_dir;
   
-  val = encod2.prevA ^ digitalRead(ENCOD2_PINB);
-  encod2.prevA = digitalRead(ENCOD2_PINA);
-  
-  temp = encod2.prevA << 1;
-  temp |= digitalRead(ENCOD2_PINB);
-  
-  if(temp == encod2.prev) //checks to make sure we don't get false reads 
+  if((PINB & B00000100)){ //pin 10
+    encod2.count = 0;
     return;
-  encod2.prev = temp;
+  }
   
-  if(val)
-    encod2.count--;
-  else
-    encod2.count++;  
+  now = (PINB & B00011000) >> 3; //pin 11 and 12
+  n_dir = (encod2.prev & B00000001) ^ ((now & B00000010) >> 1);
   
-//  Serial.print("B ");
-//  Serial.println(encod2.count); 
+  if(now == encod2.prev) //checks to make sure we don't get false trigger 
+    return;
+  encod2.prev = now;
+  
+  if(n_dir){
+    if(encod2.count == 0)
+      encod2.count = 1999;
+    else
+      encod2.count--;
+  }
+  else{
+    if(encod2.count == 1999)
+      encod2.count = 0;
+    else
+      encod2.count++;
+  }
+  
+  encod2.dir = n_dir;
+}
+
+void print_encod(){
+  //Serial.println("A ");
+  //Serial.println(encod1.count);
+  Serial.println("B ");
+  Serial.println(encod2.count);
 }
