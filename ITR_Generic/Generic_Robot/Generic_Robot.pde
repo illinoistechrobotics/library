@@ -19,10 +19,10 @@
 
 //for faster serial communication use the FastSerial library
 //fast serial isn't included directly since each person need to copy files into the arduino lbrary folder
-//will find link soon it is located in the ardupiolt mega libary file somewhere 
+//will find link soon. it is located in the ardupiolt mega libary file somewhere 
 #include "robot.h"  //check the robot.h file to set configuration such as baud rate, 
 
-// All robot specific code should be placed in the events file and other files created
+// All robot specific code should be placed in the events file and other files "user" created
 // Try not to change any code with files marked with a z. Those are crutial files and
 // do not need to be changed. Change them only if you are familler with the code. 
 
@@ -56,13 +56,7 @@ void loop() {
   //so if you are using something with time don't assume 10 milliseconds was the last time since it was 
   //called keep track of time with your own variables
   if(robot_queue_dequeue(&qu, &event)){
-    switch (event.command & 0xF0) {
-    case ROBOT_EVENT_CMD:
-      on_command_code(&event);
-      break;
-    case ROBOT_EVENT_NET:
-      on_status_code(&event);
-      break;
+    switch (event.command) {
     case ROBOT_EVENT_JOY_AXIS:
       on_axis_change(&event);
       break;
@@ -72,9 +66,9 @@ void loop() {
       else
         on_button_up(&event);
       break;
-    case ROBOT_EVENT_TIMER:
+    //case ROBOT_EVENT_TIMER:
       //on_1hz_timer,on_10hz_timer,...,on_100hz_timer are called directly from timer 
-      break;
+    //  break;
     case ROBOT_EVENT_MOTOR:
       on_motor(&event);
       break;
@@ -83,6 +77,20 @@ void loop() {
       break;
     case ROBOT_EVENT_READ_VAR:
       on_read_variable(&event);  //for sending data back to controller other than defined above
+      break;
+    case ROBOT_EVENT_CMD:
+    case ROBOT_EVENT_CMD_NOOP:
+    case ROBOT_EVENT_CMD_START:
+    case ROBOT_EVENT_CMD_STOP:
+    case ROBOT_EVENT_CMD_REBOOT:
+    case ROBOT_EVENT_CMD_SHUTDOWN:
+      on_command_code(&event);
+      break;
+    case ROBOT_EVENT_NET:
+    case ROBOT_EVENT_NET_STATUS_OK:
+    case ROBOT_EVENT_NET_STATUS_ERR:
+    case ROBOT_EVENT_NET_STATUS_NOTICE:
+      on_status_code(&event);
       break;
     default:
       break;  //not vaild command (maybe send error)????

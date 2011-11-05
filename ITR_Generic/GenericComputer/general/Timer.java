@@ -19,15 +19,21 @@ package general;
 
 public class Timer extends Thread {
 	private RobotQueue queue = null;
+	private Communication comm = null;
+	private Joystick joy = null;
 	private volatile Boolean run = true;
 	
-	public Timer(RobotQueue q){
+	public Timer(RobotQueue q, Communication c, Joystick j){
 		this.queue = q;
+		this.comm = c;
+		this.joy = j;
 	}
 	
 	public void stopThread(){
-		run = false;
-		this.interrupt();
+		if(run != false){
+			run = false;
+			this.interrupt();
+		}
 	}
 	
 	/**
@@ -42,9 +48,12 @@ public class Timer extends Thread {
 			try{
 				for(int i=0; i<10; i++){
 					queue.put(ev1);
+					joy.checkJoystick();
+					comm.sendStatus();
 					Thread.sleep(100);
 				}
 				queue.put(ev2);
+				comm.checkStatus();
 			}
 			catch(Exception e){	
 			}

@@ -1,0 +1,59 @@
+//    Copyright (C) 2011  Illinois Institute of Technology Robotics
+//	  <robotics@iit.edu>
+//
+//    This program is free software; you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation; either version 2 of the License, or
+//    (at your option) any later version.
+//
+//    This program is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//    GNU General Public License for more details.
+//
+//    You should have received a copy of the GNU General Public License along
+//    with this program; if not, write to the Free Software Foundation, Inc.,
+//    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+package general;
+
+public class Timer extends Thread {
+	private RobotQueue queue = null;
+	private Communication comm = null;
+	private Joystick joy = null;
+	private volatile Boolean run = true;
+	
+	public Timer(RobotQueue q, Communication c, Joystick j){
+		this.queue = q;
+		this.comm = c;
+		this.joy = j;
+	}
+	
+	public void stopThread(){
+		run = false;
+		this.interrupt();
+	}
+	
+	/**
+	 * Creates a 10hz timer and a 1hz timer then puts them on the queue
+	 * these timers may not be perfect but are close enough to work for our purpose
+	 */
+	public void run(){
+		run = true;
+		RobotEvent ev1 = new RobotEvent(EventEnum.ROBOT_EVENT_TIMER,(short)1,0);
+		RobotEvent ev2 = new RobotEvent(EventEnum.ROBOT_EVENT_TIMER,(short)2,0);
+		while(run){
+			try{
+				for(int i=0; i<10; i++){
+					queue.put(ev1);
+					joy.checkJoystick();
+					Thread.sleep(100);
+				}
+				queue.put(ev2);
+			}
+			catch(Exception e){	
+			}
+		}
+	}
+
+}

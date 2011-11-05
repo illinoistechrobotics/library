@@ -27,14 +27,8 @@
 // Since most of it is used for failafe and other imporant aspects
 
 
-// on_init runs when the program starts up after the joystick and the network
-// has been intitalized
+// on_init runs when the program starts up for the first time
 void on_init(robot_queue *q) {
-  robot_event ev;
-  ev.command = ROBOT_EVENT_CMD_START;
-  ev.index = 0;
-  ev.value = 0;
-  send_event(&ev);
     
 }
 
@@ -98,16 +92,21 @@ void on_command_code(robot_event *ev) {
     failsafeMode = false;
     break;
   case ROBOT_EVENT_CMD_START:
+    failsafeMode = false;
     break;
   case ROBOT_EVENT_CMD_STOP:
+    break;
+  case ROBOT_EVENT_CMD_SHUTDOWN:
     //don't know if we need/want it but here it is
-    //make sure that the event sent was a stop 
+    //make sure that the event sent was a shutdown 
     //since if it wasn't this will turn off the arduino and 
     //will require a manual reset
+    /*
     if(ev->index == 0 and ev->value == 0){
       failsafe_mode(&qu); //go to failsafe first by placing everything into a safe position
       exit(0);            //exit the program and turn off the arduino
     } 
+    */
     break;
   case ROBOT_EVENT_CMD_REBOOT:
 #ifdef WATCHDOG_

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="net.java.games.input.Component.Identifier"/>
+<fullyQualifiedTypeName name="net.java.games.input.Component.Identifier.Button"/>
+<fullyQualifiedTypeName name="net.java.games.input.Component.Identifier.Axis"/>
+<fullyQualifiedTypeName name="gui.Display"/>
+<fullyQualifiedTypeName name="general.EventEnum"/>
+<fullyQualifiedTypeName name="general.RobotEvent"/>
+</qualifiedTypeNameHistroy>

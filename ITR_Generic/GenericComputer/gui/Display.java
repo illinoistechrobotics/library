@@ -23,6 +23,8 @@ import java.awt.EventQueue;
 import java.io.*;
 import javax.swing.*;
 
+import general.EventEnum;
+import general.RobotEvent;
 import general.Joystick;
 import general.Communication;
 import general.Timer;
@@ -31,6 +33,7 @@ import general.RobotQueue;
 import net.java.games.input.*;
 import gnu.io.*;
 
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class Display {
 	
 	private RobotQueue recv_q = null;
@@ -41,6 +44,7 @@ public class Display {
 	public Display(RobotQueue q, Communication c) {
 		this.recv_q = q;
 		this.comm = c;
+		c.setDisplay(this);
 		runDisplay();
 	}
 	
@@ -58,6 +62,7 @@ public class Display {
 		});
 	}
 	
+
 	public JComboBox comboBox_Controller;
 	public JComboBox comboBox_Serial;
 	public JComboBox comboBox_Baud;
@@ -87,7 +92,8 @@ public class Display {
 		frmItrGenericrobot.setResizable(false);
 		frmItrGenericrobot.getContentPane().setBackground(new Color(240, 240, 240));
 		frmItrGenericrobot.setBounds(100, 100, 650, 650);
-		frmItrGenericrobot.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmItrGenericrobot.addWindowListener(new ExitListener());
+		frmItrGenericrobot.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		
 		frmItrGenericrobot.getContentPane().setLayout(null);
 		
@@ -389,22 +395,24 @@ public class Display {
 	  			((JButton)event.getSource()).setText("Stop");
 				comm.OpenSerial((Integer)comboBox_Baud.getSelectedItem(), (String)comboBox_Serial.getSelectedItem());
 				
-				timer = new Timer(recv_q);
-				Thread timert = timer;
-				timert.start();
-				
 				joy = new Joystick(recv_q, (Controller)comboBox_Controller.getSelectedItem(),dis);
+				recv_q.put(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_START,(short)0,0));
 				Thread joyt = joy;
 				joyt.start();
+								
+				timer = new Timer(recv_q,comm,joy);
+				Thread timert = timer;
+				timert.start();
 				
 				btnRefresh.setEnabled(false);
 	  		}
 	  		else if(((JButton)event.getSource()).getText().equals("Stop")){
 	  			((JButton)event.getSource()).setText("Start");
 	  			btnStatus.setBackground(Color.RED);
-	  			comm.closeSerial(); //stops the thread as well
 	  			timer.stopThread();
 	  			joy.stopThread();
+	  			recv_q.flush(); //clear the buffer of data since we are stopping 
+	  			recv_q.put(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_STOP,(short)0,0));
 	  			btnRefresh.setEnabled(true);
 	  		}	
 	   	}
@@ -433,10 +441,20 @@ public class Display {
 		}
 	}
 	
+	private class ExitListener extends WindowAdapter{
+		public void windowClosing(WindowEvent event){
+  			timer.stopThread();
+  			joy.stopThread();
+			recv_q.flush(); //clear the buffer of data since we are stopping 
+  			recv_q.put(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_STOP,(short)0,0));
+  			recv_q.put(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_SHUTDOWN,(short)0,0));
+		}
+	}
+	
 	/**
 	 * changes the System.out and System.err to print to the textbox area 
 	 */
-	public void redirectSystemStreams() {  
+	private void redirectSystemStreams() {  
 		  OutputStream out = new OutputStream() {  
 		    @Override  
 		    public void write(int b) throws IOException {  
@@ -469,6 +487,43 @@ public class Display {
 		}
 		if(stat == 1){
 			btnStatus.setBackground(Color.RED);
+		}
+	}
+	
+	public void updateButtonGUI(RobotEvent ev){
+		if(ev.getValue() == 0)
+			btnBut[ev.getIndex()].setBackground(new Color(0, 0x66, 0xff));
+		else
+			btnBut[ev.getIndex()].setBackground(Color.RED);
+	}
+	
+	public void updateAxisGUI(RobotEvent ev){
+		switch(ev.getIndex()){
+		case 0:
+			dis.sldAxis_X.setValue(ev.getValue());
+			dis.lblData_X.setText(Integer.toString(ev.getValue()));
+			break;
+		case 1:
+			dis.sldAxis_Y.setValue(ev.getValue());
+			dis.lblData_Y.setText(Integer.toString(ev.getValue()));
+			break;
+		case 2:
+			dis.sldAxis_X1.setValue(ev.getValue());
+			dis.lblData_X1.setText(Integer.toString(ev.getValue()));
+			break;
+		case 3:
+			dis.sldAxis_Y1.setValue(ev.getValue());
+			dis.lblData_Y1.setText(Integer.toString(ev.getValue()));
+			break;
+		}
+	}
+	
+	public void updateHatGUI(RobotEvent ev){
+		for(int i=0; i<9; i++){
+			if(ev.getValue() ==i)
+				btnD_Pad[i].setBackground(Color.RED);
+			else
+				btnD_Pad[i].setBackground(new Color(0, 0x66, 0xff));
 		}
 	}
 }

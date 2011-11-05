@@ -24,6 +24,8 @@ void timer(robot_queue *q) {
   static unsigned long  last_sent_100hz = 0;
   static unsigned int power_led_state = 0;
   
+  robot_event evt;
+  evt.command = ROBOT_EVENT_TIMER;
   //1hz and 10hz timers used by default to use other timer define them in robot.h
   if(millis() - last_sent_1hz >= 1000){   //1 hertz 1000 millis
     last_sent_1hz= millis();

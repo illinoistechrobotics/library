@@ -25,8 +25,8 @@ import gui.Display;
 public class ITR_Computer {
 	
 	/**
-	 * Creates main objects
-	 * Then 
+	 * Creates "global" objects
+	 * Then goes into loop and reads commands and outputs data
 	 */
 	public static void main(String[] args) {
 		final int MAX_QUEUE_SIZE = 128;		
@@ -67,15 +67,15 @@ public class ITR_Computer {
 				case ROBOT_EVENT_SET_VAR:
 					event.on_set_variable(ev);
 					break;
-				case ROBOT_EVENT_CMD_STOP:
-					event.on_shutdown();
+				case ROBOT_EVENT_CMD_SHUTDOWN:
 					run = false;
+					event.on_shutdown();
 					break;
 				}
 			}
 			catch(Exception e){}
 		}
-				
+		System.exit(0);		
 	}
 
 }

@@ -25,6 +25,7 @@ public enum EventEnum {
     ROBOT_EVENT_CMD_START			(0x02),
     ROBOT_EVENT_CMD_STOP			(0x03),
     ROBOT_EVENT_CMD_REBOOT			(0x04),
+    ROBOT_EVENT_CMD_SHUTDOWN		(0x05),
     
     ROBOT_EVENT_NET                 (0x10), // Remote information
     ROBOT_EVENT_NET_STATUS_OK		(0x11), 
@@ -34,6 +35,7 @@ public enum EventEnum {
     ROBOT_EVENT_JOY_AXIS            (0x20), // Joystick movements
     ROBOT_EVENT_JOY_BUTTON          (0x30), // Button presses
     ROBOT_EVENT_JOY_HAT				(0x31), // D-pad pressed
+    ROBOT_EVENT_JOY_STATUS			(0x32), // Joystick status
     ROBOT_EVENT_TIMER               (0x40), // Timer events
     ROBOT_EVENT_MOTOR               (0x50), // Motor events
     ROBOT_EVENT_ADC                 (0x60), // ADC events

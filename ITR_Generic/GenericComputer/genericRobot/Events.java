@@ -27,7 +27,6 @@ import gui.Display;
 public class Events {
 	
 	public Communication comm = null;
-	public int robotConnect = 0;
 	public Display dis = null;
 	
 	public Events(Communication c, Display d){
@@ -37,9 +36,9 @@ public class Events {
 	
 	
 	// on_init runs when the program starts up after the joystick and the network
-	// has been intitalized
+	// has been intitalized 
 	public void on_init(){
-
+		comm.sendEvent(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_START,(short)0,0));
 	}
 	
 	// on_status_code is called when the remote computer sends a status datagram
@@ -51,12 +50,13 @@ public class Events {
 	public void on_command_code(RobotEvent ev){
 		switch(ev.getCommand()) {
 		  case ROBOT_EVENT_CMD_NOOP:
-		    robotConnect = 0;
-		    dis.changeRobotStatus(robotConnect);
+		    comm.okStatus(); //tells that the robot is connected 
 		    break;
 		  case ROBOT_EVENT_CMD_START:
 		    break;
 		  case ROBOT_EVENT_CMD_STOP:
+			  comm.sendEvent(ev);
+			  comm.closeSerial();
 		    break;
 		  case ROBOT_EVENT_CMD_REBOOT:
 			  comm.sendEvent(ev);
@@ -78,7 +78,6 @@ public class Events {
 	// button is the button number
 	public void on_button_up(RobotEvent ev){
 		
-		comm.sendEvent(ev);
 	}
 
 	// on_button_down is called when a joystick button is pressed
@@ -89,16 +88,12 @@ public class Events {
 	
 	// timer that runs each second
 	public void on_1hz_timer(RobotEvent ev){
-		robotConnect++;
-		if(robotConnect > 1){
-			dis.changeRobotStatus(1);
-		}
+
 	}
 
 	// timer that runs every .1 second (100ms)
 	public void on_10hz_timer(RobotEvent ev){
-		RobotEvent newEvent = new RobotEvent(EventEnum.ROBOT_EVENT_CMD_NOOP,(short)0,0);
-		comm.sendEvent(newEvent);
+	
 	}
 	
 	// on_read_variable is called when the computer wants to read a robo variable
@@ -113,6 +108,6 @@ public class Events {
 	
 	// on_shutdown runs when the robot should shutdown and a manual hard reset needed to turn back on. 
 	public void on_shutdown(){
-		
+		//comm.sendEvent(ev); //uncomment if you want to send shutdown event to robot. stop event is sent before it reacher this point
 	}
 }

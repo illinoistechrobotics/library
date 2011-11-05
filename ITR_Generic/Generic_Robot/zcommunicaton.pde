@@ -17,7 +17,7 @@
 //    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 int open_serial(unsigned long b) {
-  Serial.begin(b);
+  SerComm.begin(b);
 }
 
 // send_event - send a robot communication datagram
@@ -28,16 +28,16 @@ void send_event(robot_event *ev) {
 
   byte checksum = (unsigned char)((ev->command + ev->index + byte(ev->value) + byte(ev->value >>8)) % 255);
 
-  Serial.print(0x55,BYTE);                     //Start byte 'U'
-  Serial.print(',');
-  Serial.print(ev->command,HEX);               //command byte
-  Serial.print(',');
-  Serial.print(ev->index,HEX);                 //index byte
-  Serial.print(',');
-  Serial.print(ev->value,HEX);                 //vlaue two bytes
-  Serial.print(',');
-  Serial.print(checksum,HEX);                  //check sum
-  Serial.print('\n');                          //newline
+  SerComm.print(0x55,BYTE);                     //Start byte 'U'
+  SerComm.print(',');
+  SerComm.print(ev->command,HEX);               //command byte
+  SerComm.print(',');
+  SerComm.print(ev->index,HEX);                 //index byte
+  SerComm.print(',');
+  SerComm.print(ev->value,HEX);                 //vlaue two bytes
+  SerComm.print(',');
+  SerComm.print(checksum,HEX);                  //check sum
+  SerComm.print('\n');                          //newline
 }
 
 #define BUF_SIZE 256
@@ -52,8 +52,8 @@ int xbee_recv_event(robot_queue *q){
   static int start = 0;  
   static int newline = 0;
   
-  while(Serial.available() > 0 && count < BUF_SIZE){
-      buf[count]=Serial.read();
+  while(SerComm.available() > 0 && count < BUF_SIZE){
+      buf[count]=SerComm.read();
       count++;
   }
 

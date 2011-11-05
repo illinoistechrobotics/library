@@ -21,13 +21,16 @@ package general;
 import java.io.*;
 import java.util.*;
 import gnu.io.*;
+import gui.Display;
 
+@SuppressWarnings("rawtypes")
 public class Communication implements SerialPortEventListener {
 	
 	private SerialPort serialPort = null;
 	private InputStream input = null;
 	private OutputStream output = null;
 	private RobotQueue recv = null;
+	private Display dis = null;
 	
 	public Communication(RobotQueue r){
 		this.recv = r;
@@ -38,7 +41,6 @@ public class Communication implements SerialPortEventListener {
 	 */
 	public boolean OpenSerial(int baud, String port){
 		CommPortIdentifier portId = null;
-		@SuppressWarnings("rawtypes")
 		Enumeration portEnum = CommPortIdentifier.getPortIdentifiers();
 		
 		while (portEnum.hasMoreElements()){
@@ -77,7 +79,6 @@ public class Communication implements SerialPortEventListener {
 	 * returns an array of all the serial ports available 
 	 */
 	public static CommPortIdentifier[] getSerialPorts(){
-		@SuppressWarnings("rawtypes")
 		Enumeration portEnum = CommPortIdentifier.getPortIdentifiers();
 		int i=0;
 		while(portEnum.hasMoreElements()){
@@ -86,7 +87,6 @@ public class Communication implements SerialPortEventListener {
 		}
 		
 		CommPortIdentifier[] portId = new CommPortIdentifier[i];
-		@SuppressWarnings("rawtypes")
 		Enumeration portEnum2 = CommPortIdentifier.getPortIdentifiers();
 		
 		i=0;
@@ -169,6 +169,7 @@ public class Communication implements SerialPortEventListener {
 		        		data[i] = Integer.parseInt(temp,16);
 		        	}
 		        	catch(NumberFormatException e){
+		        		return;
 		        	}
 		        	i++;
 		        }
@@ -194,12 +195,34 @@ public class Communication implements SerialPortEventListener {
 	}
 	
 	
-	public void sendEvent(RobotEvent ev){
+	public synchronized void sendEvent(RobotEvent ev){
 		try{
 			output.write(ev.toStringSend().getBytes());   //write needs a byte array instead of a string
 		}
 		catch(Exception e){
 		}
 		
+	}
+	
+	public void setDisplay(Display d){
+		this.dis = d;
+	}
+	
+	public void sendStatus(){
+		sendEvent(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_NOOP,(short)0,0));
+	}
+	
+	private int robotConnect = 0;
+	public void checkStatus(){
+		robotConnect++;
+		if(robotConnect > 1){
+			recv.put(new RobotEvent(EventEnum.ROBOT_EVENT_NET_STATUS_ERR,(short)0,0));
+			dis.changeRobotStatus(1);
+		}
+	}
+	
+	public void okStatus(){
+		robotConnect = 0;
+	    dis.changeRobotStatus(robotConnect);
 	}
 }

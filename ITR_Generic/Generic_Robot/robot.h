@@ -20,6 +20,7 @@
 #define ROBOT_H
 
 #define BAUD 57600
+#define SerComm Serial    //used to make it easy to change different serial ports such on the mega you can change to Serial1 or Serial2 if you want
 
 //#define TIMER_1HZ_      //1 hz and 10 hz timers still run but user functions are not called if not defined
 //#define TIMER_10HZ_ 
@@ -44,6 +45,7 @@ enum {
     ROBOT_EVENT_CMD_START           = 0x02, // Start
     ROBOT_EVENT_CMD_STOP            = 0x03, // Stop
     ROBOT_EVENT_CMD_REBOOT          = 0x04, // Reboot
+    ROBOT_EVENT_CMD_SHUTDOWN        = 0x05, // Shutdown
     
     ROBOT_EVENT_NET                 = 0x10, // Remote information
     ROBOT_EVENT_NET_STATUS_OK       = 0x11, // OK
@@ -53,6 +55,7 @@ enum {
     ROBOT_EVENT_JOY_AXIS            = 0x20, // Joystick movements
     ROBOT_EVENT_JOY_BUTTON          = 0x30, // Button presses
     ROBOT_EVENT_JOY_HAT             = 0x31, // Hat movement/D-pad
+    ROBOT_EVENT_JOY_STATUS          = 0x32, // Joystick Status
     ROBOT_EVENT_TIMER		    = 0x40, // Timer events
     ROBOT_EVENT_MOTOR	   	    = 0x50, // Motor events
     ROBOT_EVENT_ADC		    = 0x60, // ADC events

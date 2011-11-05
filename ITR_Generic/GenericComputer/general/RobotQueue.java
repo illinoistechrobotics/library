@@ -126,4 +126,10 @@ public class RobotQueue {
 			return tmp;
 		}
 	}
+	
+	public synchronized void flush(){
+		size = 0;
+		first = null;
+		last = null;
+	}
 }
