@@ -77,7 +77,7 @@ public class Joystick extends Thread {
 	 * axis index (X=0,Y=1,X1=2,Y1=3) value 0-255 up and right is 255, down and left is 0
 	 * buttons index equals button number-1 i.e(1 on controller has index 0) value 0 released(up) 1 pressed(down)
 	 * d_pad(hat) index 0, value 0 neutral 1-8 (1 starting a 9 o'clock position and moving clockwise)
-	 * also updates the gui with joystick values hack for linux since drivers label things differently
+	 * also updates the gui with joystick values hack for linux since drivers lable things diffrently
 	 */
 	public void run(){
 		RobotEvent ev = new RobotEvent();

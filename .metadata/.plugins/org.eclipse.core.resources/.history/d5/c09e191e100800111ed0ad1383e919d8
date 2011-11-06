@@ -16,7 +16,6 @@
 //    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 //source: http://www.arduino.cc/playground/Interfacing/Java
-
 package general;
 
 import java.io.*;

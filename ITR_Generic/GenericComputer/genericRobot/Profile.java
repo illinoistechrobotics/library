@@ -1,4 +1,3 @@
-package genericRobot;
 //    Copyright (C) 2011  Illinois Institute of Technology Robotics
 //	  <robotics@iit.edu>
 //
@@ -16,6 +15,7 @@ package genericRobot;
 //    with this program; if not, write to the Free Software Foundation, Inc.,
 //    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+package genericRobot;
 
 
 import java.util.*;

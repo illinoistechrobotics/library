@@ -16,7 +16,6 @@
 //    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 //source: http://www.arduino.cc/playground/Interfacing/Java
-
 package general;
 
 import java.io.*;
@@ -170,6 +169,7 @@ public class Communication implements SerialPortEventListener {
 		        		data[i] = Integer.parseInt(temp,16);
 		        	}
 		        	catch(NumberFormatException e){
+		        		return;
 		        	}
 		        	i++;
 		        }
@@ -195,7 +195,7 @@ public class Communication implements SerialPortEventListener {
 	}
 	
 	
-	public synchronized void sendEvent(RobotEvent ev){
+	public void sendEvent(RobotEvent ev){
 		try{
 			output.write(ev.toStringSend().getBytes());   //write needs a byte array instead of a string
 		}
@@ -224,6 +224,6 @@ public class Communication implements SerialPortEventListener {
 	
 	public void okStatus(){
 		robotConnect = 0;
-	    dis.changeRobotStatus(0);
+	    dis.changeRobotStatus(robotConnect);
 	}
 }
