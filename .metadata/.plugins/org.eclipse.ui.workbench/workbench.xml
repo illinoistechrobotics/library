@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="23" version="2.0">
+<workbench progressCount="17" version="2.0">
 <workbenchAdvisor/>
+<<<<<<< HEAD
 <window height="738" width="836" x="530" y="0">
+=======
+<window height="736" width="681" x="683" y="24">
+>>>>>>> origin/master
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
 </perspectiveBar>
 <coolbarLayout>
 <coolItem id="group.file" itemType="typeGroupMarker"/>
+<<<<<<< HEAD
 <coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="230" y="22"/>
+=======
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="132" y="30"/>
+>>>>>>> origin/master
 <coolItem id="additions" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="129" y="22"/>
-<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="76" y="22"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="76" y="22"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="107" y="22"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="120" y="30"/>
+<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="76" y="30"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="151" y="30"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="124" y="30"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="184" y="30"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
@@ -31,18 +39,13 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
-<part id="2"/>
-<part id="3"/>
-<part id="4"/>
-<part id="5"/>
-<part id="6"/>
-<part id="7"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ITR_Computer.java" partName="ITR_Computer.java" path="C:/Users/abirylo/Documents/ITR CODE/library/ITR_Generic/GenericComputer/genericRobot/ITR_Computer.java" title="ITR_Computer.java" tooltip="ITR_Generic/GenericComputer/genericRobot/ITR_Computer.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ITR_Computer.java" partName="ITR_Computer.java" path="/home/abirylo/ITR_CODE/library/ITR_Generic/GenericComputer/genericRobot/ITR_Computer.java" title="ITR_Computer.java" tooltip="ITR_Generic/GenericComputer/genericRobot/ITR_Computer.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITR_Generic/GenericComputer/genericRobot/ITR_Computer.java"/>
+<<<<<<< HEAD
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="886" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Display.java" partName="Display.java" path="C:/Users/abirylo/Documents/ITR CODE/library/ITR_Generic/GenericComputer/gui/Display.java" title="Display.java" tooltip="ITR_Generic/GenericComputer/gui/Display.java" workbook="DefaultEditorWorkbook">
@@ -72,6 +75,13 @@
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Timer.java" partName="Timer.java" path="C:/Users/abirylo/Documents/ITR CODE/library/ITR_Generic/GenericComputer/general/Timer.java" title="Timer.java" tooltip="ITR_Generic/GenericComputer/general/Timer.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITR_Generic/GenericComputer/general/Timer.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1237" selectionTopPixel="0"/>
+=======
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="116" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Communication.java" partName="Communication.java" path="/home/abirylo/ITR_CODE/library/ITR_Generic/GenericComputer/general/Communication.java" title="Communication.java" tooltip="ITR_Generic/GenericComputer/general/Communication.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITR_Generic/GenericComputer/general/Communication.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5381" selectionTopPixel="2508"/>
+>>>>>>> origin/master
 </editor>
 </editors>
 <views>
@@ -141,8 +151,6 @@
 <alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
 <alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
 <alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
-<alwaysOnActionSet id="com.google.gdt.eclipse.designer.actionset"/>
-<alwaysOnActionSet id="org.eclipse.wb.core.ui.actionset"/>
 <alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.ui.JavaElementCreationActionSet"/>
@@ -188,12 +196,17 @@
 <view id="org.eclipse.jdt.ui.JavadocView"/>
 <view id="org.eclipse.jdt.ui.SourceView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
+<<<<<<< HEAD
 <fastViewBars>
 <fastViewBar fastViewLocation="16384" id="left" orientation="512" selectedTabId="org.eclipse.jdt.ui.PackageExplorer" style="0">
 <fastViews>
 <view id="org.eclipse.jdt.ui.PackageExplorer" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
+=======
+<view id="org.eclipse.jdt.ui.PackageExplorer"/>
+<fastViewBars>
+>>>>>>> origin/master
 <fastViewBar fastViewLocation="131072" id="right" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="0">
 <fastViews>
 <view id="org.eclipse.ui.views.ContentOutline" ratio="0.3"/>
@@ -222,8 +235,13 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
+<<<<<<< HEAD
 <info part="org.eclipse.ui.editorss" ratio="0.25" ratioLeft="250" ratioRight="750" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.7487844" ratioLeft="462" ratioRight="155" relationship="4" relative="org.eclipse.ui.editorss">
+=======
+<info part="org.eclipse.ui.editorss" ratio="0.2908805" ratioLeft="185" ratioRight="451" relationship="2" relative="left"/>
+<info folder="true" part="bottom" ratio="0.6076389" ratioLeft="350" ratioRight="226" relationship="4" relative="org.eclipse.ui.editorss">
+>>>>>>> origin/master
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
@@ -262,6 +280,7 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/EventEnum.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/Joystick.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/Timer.java"/>
+<<<<<<< HEAD
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/gui/Display.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/genericRobot/Events.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/genericRobot/ITR_Computer.java"/>
@@ -284,6 +303,16 @@
 </item>
 <item historyLabel="Events.java" index="3">
 <position info="not_deleted" x="2064" y="0"/>
+=======
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/genericRobot/ITR_Computer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/gui/Display.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/Timer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/genericRobot/ITR_Computer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/Communication.java"/>
+</editors>
+<item historyLabel="Display.java" index="0">
+<position/>
+>>>>>>> origin/master
 </item>
 <item historyLabel="Display.java" index="0">
 <position info="not_deleted" x="15850" y="0"/>
@@ -411,11 +440,37 @@
 <item historyLabel="Joystick.java" index="5">
 <position info="not_deleted" x="2859" y="0"/>
 </item>
+<<<<<<< HEAD
 <item historyLabel="Timer.java" index="6">
 <position info="not_deleted" x="1237" y="0"/>
 </item>
 <item active="true" historyLabel="EventEnum.java" index="4">
 <position info="not_deleted" x="861" y="0"/>
+=======
+<item historyLabel="Communication.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ITR_Computer.java" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Display.java" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Timer.java" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Display.java" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ITR_Computer.java" index="11">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ITR_Computer.java" index="11">
+<position info="not_deleted" x="116" y="0"/>
+</item>
+<item active="true" historyLabel="Communication.java" index="12">
+<position info="not_deleted" x="0" y="0"/>
+>>>>>>> origin/master
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -436,12 +491,21 @@
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="bottom"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
+<<<<<<< HEAD
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="Events.pde" tooltip="ITR_Generic/Generic_Robot/Events.pde">
 <persistable path="/ITR_Generic/Generic_Robot/Events.pde"/>
+=======
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Communication.java" tooltip="ITR_Generic/GenericComputer/general/Communication.java">
+<persistable path="/ITR_Generic/GenericComputer/general/Communication.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ITR_Computer.java" tooltip="ITR_Generic/GenericComputer/genericRobot/ITR_Computer.java">
+<persistable path="/ITR_Generic/GenericComputer/genericRobot/ITR_Computer.java"/>
+>>>>>>> origin/master
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Timer.java" tooltip="ITR_Generic/GenericComputer/general/Timer.java">
 <persistable path="/ITR_Generic/GenericComputer/general/Timer.java"/>
@@ -455,17 +519,11 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Events.java" tooltip="ITR_Generic/GenericComputer/genericRobot/Events.java">
 <persistable path="/ITR_Generic/GenericComputer/genericRobot/Events.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Communication.java" tooltip="ITR_Generic/GenericComputer/general/Communication.java">
-<persistable path="/ITR_Generic/GenericComputer/general/Communication.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EventEnum.java" tooltip="ITR_Generic/GenericComputer/general/EventEnum.java">
 <persistable path="/ITR_Generic/GenericComputer/general/EventEnum.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Display.java" tooltip="ITR_Generic/GenericComputer/gui/Display.java">
 <persistable path="/ITR_Generic/GenericComputer/gui/Display.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ITR_Computer.java" tooltip="ITR_Generic/GenericComputer/genericRobot/ITR_Computer.java">
-<persistable path="/ITR_Generic/GenericComputer/genericRobot/ITR_Computer.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RobotQueue.java" tooltip="ITR_Generic/GenericComputer/general/RobotQueue.java">
 <persistable path="/ITR_Generic/GenericComputer/general/RobotQueue.java"/>

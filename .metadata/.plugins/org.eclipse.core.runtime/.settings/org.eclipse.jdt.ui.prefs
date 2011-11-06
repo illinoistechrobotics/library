@@ -1,4 +1,4 @@
-#Fri Nov 04 23:56:35 CDT 2011
+#Sat Nov 05 20:53:21 CDT 2011
 useQuickDiffPrefPage=true
 org.eclipse.jdt.ui.text.templates_migrated=true
 proposalOrderMigrated=true
@@ -7,7 +7,7 @@ content_assist_proposals_background=255,255,255
 org.eclipse.jdt.ui.javadoclocations.migrated=true
 useAnnotationsPrefPage=true
 content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="net.java.games.input.Component$Identifier"><rhs name\="net.java.games.input.Component$Identifier"/><rhs name\="net.java.games.input.Component$Identifier$Button"/><rhs name\="net.java.games.input.Component$Identifier$Axis"/></lhs></history>
-org.eclipse.jface.textfont=1|Consolas|10.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
+org.eclipse.jface.textfont=1|Monospace|10.0|0|GTK|1|;
 org.eclipse.jdt.ui.editor.tab.width=
 org.eclipse.jdt.ui.formatterprofiles.version=12
 org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
