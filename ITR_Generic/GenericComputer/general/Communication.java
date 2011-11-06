@@ -169,7 +169,7 @@ public class Communication implements SerialPortEventListener {
 		        		data[i] = Integer.parseInt(temp,16);
 		        	}
 		        	catch(NumberFormatException e){
-		        		return;
+		        	
 		        	}
 		        	i++;
 		        }

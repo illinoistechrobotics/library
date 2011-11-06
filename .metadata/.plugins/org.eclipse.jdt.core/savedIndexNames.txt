@@ -1,5 +1,5 @@
-INDEX VERSION 1.126+C:\Users\abirylo\Documents\ITR CODE\library\.metadata\.plugins\org.eclipse.jdt.core
-68504275.index
-1264721681.index
-2683482720.index
-3895216821.index
+INDEX VERSION 1.126+/home/abirylo/ITR_CODE/library/.metadata/.plugins/org.eclipse.jdt.core
+414600213.index
+2794042858.index
+1801958843.index
+3079932827.index
