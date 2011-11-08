@@ -443,8 +443,10 @@ public class Display {
 	
 	private class ExitListener extends WindowAdapter{
 		public void windowClosing(WindowEvent event){
-  			timer.stopThread();
-  			joy.stopThread();
+  			if(timer != null)
+  				timer.stopThread();
+  			if(joy != null)
+  				joy.stopThread();
 			recv_q.flush(); //clear the buffer of data since we are stopping 
   			recv_q.put(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_STOP,(short)0,0));
   			recv_q.put(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_SHUTDOWN,(short)0,0));
