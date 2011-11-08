@@ -170,10 +170,6 @@ public class Communication implements SerialPortEventListener {
 		        		data[i] = Integer.parseInt(temp,16);
 		        	}
 		        	catch(NumberFormatException e){
-<<<<<<< HEAD
-=======
-		        	
->>>>>>> origin/master
 		        	}
 		        	i++;
 		        }
