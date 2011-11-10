@@ -426,3 +426,21 @@ org.eclipse.core.runtime.AssertionFailedException: unknown saveable: org.eclipse
 
 !ENTRY org.eclipse.ui 4 4 2011-11-08 01:28:10.488
 !MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2011-11-08 01:48:18.543 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.7.0
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2011-11-08 01:49:27.104
+!MESSAGE Invalid preference page path: XML Syntax
+!SESSION 2011-11-08 21:50:50.693 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.7.0
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2011-11-08 21:52:03.064
+!MESSAGE Invalid preference page path: XML Syntax
