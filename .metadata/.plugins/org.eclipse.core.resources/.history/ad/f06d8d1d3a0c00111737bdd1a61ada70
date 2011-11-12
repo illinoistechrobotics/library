@@ -198,9 +198,6 @@ public class Communication implements SerialPortEventListener {
 	public synchronized void sendEvent(RobotEvent ev){
 		try{
 			output.write(ev.toStringSend().getBytes());   //write needs a byte array instead of a string
-			long milli = (long)(1.0/((float)serialPort.getBaudRate()/(8.0*16.0))*1000.0);
-			long nano = (long)(1.0/((float)serialPort.getBaudRate()/(8.0*16.0))*1000000000.0) - milli*1000000;
-			Thread.sleep((int)milli,(int)nano);
 		}
 		catch(Exception e){
 		}

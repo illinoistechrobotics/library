@@ -1,5 +1,12 @@
 This is a list of the events that happen in ITR_General.
 
+Command Structure
+ 
+U,command,index,value,check\n
+i.e. command = 0x80, index = 15 value = 127
+U,80,F,7F,E
+
+
 ROBOT_EVENT_CMD_NOOP		sent to robot every 100ms(10Hz)   
 							index 0 value 0
 							sent to computer every 1sec(1Hz)
