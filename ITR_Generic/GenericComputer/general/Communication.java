@@ -93,6 +93,7 @@ public class Communication implements SerialPortEventListener {
 		i=0;
 		while (portEnum2.hasMoreElements()){
 			portId[i] = (CommPortIdentifier) portEnum2.nextElement();
+			i++;
 		}
 		return portId;
 	}
@@ -218,7 +219,7 @@ public class Communication implements SerialPortEventListener {
 	private int robotConnect = 0;
 	public void checkStatus(){
 		robotConnect++;
-		if(robotConnect > 1){
+		if(robotConnect > 2){
 			robotConnect = 3;
 			recv.put(new RobotEvent(EventEnum.ROBOT_EVENT_NET_STATUS_ERR,(short)0,0));
 			dis.changeRobotStatus(1);

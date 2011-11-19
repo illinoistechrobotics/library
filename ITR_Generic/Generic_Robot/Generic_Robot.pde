@@ -78,12 +78,16 @@ void loop() {
     case ROBOT_EVENT_READ_VAR:
       on_read_variable(&event);  //for sending data back to controller other than defined above
       break;
+    case ROBOT_EVENT_VAR:
+      on_variable(&event);
+      break;
     case ROBOT_EVENT_CMD:
     case ROBOT_EVENT_CMD_NOOP:
     case ROBOT_EVENT_CMD_START:
     case ROBOT_EVENT_CMD_STOP:
     case ROBOT_EVENT_CMD_REBOOT:
     case ROBOT_EVENT_CMD_SHUTDOWN:
+    case ROBOT_EVENT_CMD_FAILSAFE:
       on_command_code(&event);
       break;
     case ROBOT_EVENT_NET:
@@ -100,7 +104,8 @@ void loop() {
 
 //Place code here to put the robot in a safe state(i.e stopping the motors ..)
 //failsafe_mode will run at 10hz untill communications is restored 
-void failsafe_mode(robot_queue *q) {
+void failsafe_mode() {
   failsafeMode = true; 
+  
 }
 

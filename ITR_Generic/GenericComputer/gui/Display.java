@@ -36,13 +36,13 @@ import gnu.io.*;
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class Display {
 	
-	private RobotQueue recv_q = null;
+	private RobotQueue queue = null;
 	private Communication comm = null;
 	private Display dis = this;
 	public JFrame frmItrGenericrobot;
 
 	public Display(RobotQueue q, Communication c) {
-		this.recv_q = q;
+		this.queue = q;
 		this.comm = c;
 		c.setDisplay(this);
 		runDisplay();
@@ -395,12 +395,13 @@ public class Display {
 	  			((JButton)event.getSource()).setText("Stop");
 				comm.OpenSerial((Integer)comboBox_Baud.getSelectedItem(), (String)comboBox_Serial.getSelectedItem());
 				
-				joy = new Joystick(recv_q, (Controller)comboBox_Controller.getSelectedItem(),dis);
-				recv_q.put(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_START,(short)0,0));
+				joy = new Joystick(queue, (Controller)comboBox_Controller.getSelectedItem(),dis);
+				queue.put(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_START,(short)0,0));
 				Thread joyt = joy;
 				joyt.start();
 								
-				timer = new Timer(recv_q,comm,joy);
+				timer = new Timer(queue,comm);
+				timer.setTimers(false, false, false, false, false); //set which timers should run
 				Thread timert = timer;
 				timert.start();
 				
@@ -411,8 +412,8 @@ public class Display {
 	  			btnStatus.setBackground(Color.RED);
 	  			timer.stopThread();
 	  			joy.stopThread();
-	  			recv_q.flush(); //clear the buffer of data since we are stopping 
-	  			recv_q.put(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_STOP,(short)0,0));
+	  			queue.flush(); //clear the buffer of data since we are stopping 
+	  			queue.put(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_STOP,(short)0,0));
 	  			btnRefresh.setEnabled(true);
 	  		}	
 	   	}
@@ -447,9 +448,9 @@ public class Display {
   				timer.stopThread();
   			if(joy != null)
   				joy.stopThread();
-			recv_q.flush(); //clear the buffer of data since we are stopping 
-  			recv_q.put(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_STOP,(short)0,0));
-  			recv_q.put(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_SHUTDOWN,(short)0,0));
+			queue.flush(); //clear the buffer of data since we are stopping 
+  			queue.put(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_STOP,(short)0,0));
+  			queue.put(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_SHUTDOWN,(short)0,0));
 		}
 	}
 	

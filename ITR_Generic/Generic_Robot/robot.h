@@ -24,7 +24,7 @@
 
 //#define TIMER_1HZ_      //1 hz and 10 hz timers still run but user functions are not called if not defined
 //#define TIMER_10HZ_ 
-//#define TIMER_20HZ_     //uncomment to run code at the specifed hz
+//#define TIMER_25HZ_     //uncomment to run code at the specifed hz
 //#define TIMER_50HZ_ 
 //#define TIMER_100HZ_ 
 #define POWER_LED_        //blinks a led implemented in timer loop and pin specifed below
@@ -46,6 +46,7 @@ enum {
     ROBOT_EVENT_CMD_STOP            = 0x03, // Stop
     ROBOT_EVENT_CMD_REBOOT          = 0x04, // Reboot
     ROBOT_EVENT_CMD_SHUTDOWN        = 0x05, // Shutdown
+    ROBOT_EVENT_CMD_FAILSAFE        = 0x06, // Failsafe
     
     ROBOT_EVENT_NET                 = 0x10, // Remote information
     ROBOT_EVENT_NET_STATUS_OK       = 0x11, // OK

@@ -27,6 +27,7 @@ public class RobotEvent {
 	 * One new Robot_Event object for each event
 	 * since java doesn't support unsigned types the values are larger than they should be
 	 * actual values that are used on the arduino and will be sent are
+	 * (may add node 1 byte sender 1 byte receiver)
 	 * command 1 byte
 	 * index   1 byte
 	 * value   2 bytes

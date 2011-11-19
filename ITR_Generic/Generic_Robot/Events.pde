@@ -42,13 +42,13 @@ void on_axis_change(robot_event *ev){
 // on_button_up is called when a joystick button is released
 // button is the button number
 void on_button_up(robot_event *ev) {
-
+  
 }
 
 // on_button_down is called when a joystick button is pressed
 // button is the button number
 void on_button_down(robot_event *ev) {	
-
+  
 }
 
 //on_motor is called when a motor speed is updated
@@ -68,7 +68,7 @@ void on_10hz_timer(robot_event *ev){
 }
 
 //place code that has to be run every 20hz
-void on_20hz_timer(robot_event *ev){
+void on_25hz_timer(robot_event *ev){
   
 }
 
@@ -85,17 +85,27 @@ void on_100hz_timer(robot_event *ev){
 }
 
 // on_command_code is called when the remote computer sends a command datagram
+boolean failsafePerMode = false; //this puts the robot into pernament failsafeMode untill a Robot_Event_CMD_start is recieved
 void on_command_code(robot_event *ev) {
   switch(ev->command) {
   case ROBOT_EVENT_CMD_NOOP:
-    failcount = 0;
-    failsafeMode = false;
+    if(!failsafePerMode){
+      failcount = 0;
+      failsafeMode = false;
+    }
     break;
   case ROBOT_EVENT_CMD_START:
     failsafeMode = false;
+    failsafePerMode = false;
     break;
   case ROBOT_EVENT_CMD_STOP:
     break;
+    failsafePerMode = true;
+    failsafe_mode();
+  case ROBOT_EVENT_CMD_FAILSAFE:
+    break;
+    failsafePerMode = true;
+    failsafe_mode();
   case ROBOT_EVENT_CMD_SHUTDOWN:
     //don't know if we need/want it but here it is
     //make sure that the event sent was a shutdown 
@@ -141,4 +151,7 @@ void on_set_variable(robot_event *ev){
 
 // on_read_variable is called when the computer wants to read a robostix variable
 void on_read_variable(robot_event *ev){
+}
+
+void on_variable(robot_event *ev){
 }

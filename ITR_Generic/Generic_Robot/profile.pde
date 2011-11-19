@@ -51,7 +51,8 @@ void setPinProfile(char data){
   default:
 #ifdef POWER_LED_
     POWER_LED_PIN   = 13;    //Sets which pin should flash to indicate powered on 
-    pinMode(POWER_LED_PIN, OUTPUT);  
+    pinMode(POWER_LED_PIN, OUTPUT); 
+    pinMode(12,OUTPUT); 
 #endif
     break;
   }

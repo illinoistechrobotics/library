@@ -35,16 +35,19 @@ public class Events {
 		this.dis = d;
 	}
 	
-	
-	// on_init runs when the program starts up after the joystick and the network
-	// has been intitalized 
-	public void on_init(){
-		comm.sendEvent(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_START,(short)0,0));
-	}
-	
 	// on_status_code is called when the remote computer sends a status datagram
-	public void on_status_code(RobotEvent ev){
-		
+	public void on_net_status(RobotEvent ev){
+		switch(ev.getCommand()){
+		  case ROBOT_EVENT_NET:
+			  break;
+		  case ROBOT_EVENT_NET_STATUS_OK: 
+			  break;
+		  case ROBOT_EVENT_NET_STATUS_ERR:
+			  //System.err.println("Lost Communication with robot");
+			  break;
+		  case ROBOT_EVENT_NET_STATUS_NOTICE:
+			  break;
+		}
 	}
 
 	// on_command_code is called when the remote computer sends a command datagram
@@ -54,6 +57,7 @@ public class Events {
 		    comm.okStatus(); //tells that the robot is connected 
 		    break;
 		  case ROBOT_EVENT_CMD_START:
+				comm.sendEvent(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_START,(short)0,0));
 		    break;
 		  case ROBOT_EVENT_CMD_STOP:
 			  comm.sendEvent(ev);
@@ -72,19 +76,29 @@ public class Events {
 	// index is the axis number, value is the position of the axis from 0-255
 	// a value of 127 is center
 	public void on_axis_change(RobotEvent ev){
-		
+
 	}
 	
 	// on_button_up is called when a joystick button is released
 	// button is the button number
 	public void on_button_up(RobotEvent ev){
-		
+
 	}
 
 	// on_button_down is called when a joystick button is pressed
 	// button is the button number
 	public void on_button_down(RobotEvent ev){
+
+	}
+	
+	//when the d-pad is pressed
+	public void on_joy_hat(RobotEvent ev){
 		
+	}
+	
+	//when the joystick has problems
+	public void on_joy_status(RobotEvent ev){
+		comm.sendEvent(new RobotEvent(EventEnum.ROBOT_EVENT_CMD_FAILSAFE,(short)0,0));
 	}
 	
 	// timer that runs each second
@@ -97,6 +111,21 @@ public class Events {
 	
 	}
 	
+	// timer that runs every .04 second (40ms)
+	public void on_25hz_timer(RobotEvent ev){
+		
+	}
+	
+	// timer that runs every .02 second (20ms)
+	public void on_50hz_timer(RobotEvent ev){
+		
+	}
+	
+	// timer that runs every .01 second (10ms)
+	public void on_100hz_timer(RobotEvent ev){
+		
+	}
+	
 	// on_read_variable is called when the computer wants to read a robo variable
 	public void on_read_variable(RobotEvent ev){
 		
@@ -104,6 +133,10 @@ public class Events {
 
 	// on_set_variable is called when the computer wants to set a robo variable
 	public void on_set_variable(RobotEvent ev){
+		
+	}
+	
+	public void on_variable(RobotEvent ev){
 		
 	}
 	

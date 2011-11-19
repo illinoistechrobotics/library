@@ -41,11 +41,18 @@ public class ITR_Computer {
 			try{
 				RobotEvent ev = recv_q.take();
 				switch (ev.getCommand()){
-				case ROBOT_EVENT_CMD_START:
-					event.on_init();
-					break;
 				case ROBOT_EVENT_CMD_NOOP:
+				case ROBOT_EVENT_CMD_STOP:
+				case ROBOT_EVENT_CMD_START:
+				case ROBOT_EVENT_CMD_REBOOT:
+				case ROBOT_EVENT_CMD:
 					event.on_command_code(ev);
+					break;
+				case ROBOT_EVENT_NET:
+				case ROBOT_EVENT_NET_STATUS_OK: 
+				case ROBOT_EVENT_NET_STATUS_ERR:
+				case ROBOT_EVENT_NET_STATUS_NOTICE:
+					event.on_net_status(ev);
 					break;
 				case ROBOT_EVENT_JOY_AXIS:
 					event.on_axis_change(ev);
@@ -56,11 +63,23 @@ public class ITR_Computer {
 					else if (ev.getValue() == 0)
 						event.on_button_up(ev);
 					break;
+				case ROBOT_EVENT_JOY_HAT:
+					event.on_joy_hat(ev);
+					break;
+				case ROBOT_EVENT_JOY_STATUS:
+					event.on_joy_status(ev);
+					break;
 				case ROBOT_EVENT_TIMER:
 					if(ev.getIndex() == 1)
-						event.on_10hz_timer(ev);
-					else if(ev.getIndex() == 2)
 						event.on_1hz_timer(ev);
+					else if(ev.getIndex() == 2)
+						event.on_10hz_timer(ev);
+					else if (ev.getIndex() == 3)
+						event.on_25hz_timer(ev);
+					else if (ev.getIndex() == 4)
+						event.on_50hz_timer(ev);
+					else if (ev.getIndex() == 5)
+						event.on_100hz_timer(ev);
 					break;					
 				case ROBOT_EVENT_READ_VAR:
 					event.on_read_variable(ev);
@@ -68,6 +87,8 @@ public class ITR_Computer {
 				case ROBOT_EVENT_SET_VAR:
 					event.on_set_variable(ev);
 					break;
+				case ROBOT_EVENT_VAR:
+					event.on_variable(ev);
 				case ROBOT_EVENT_CMD_SHUTDOWN:
 					run = false;
 					event.on_shutdown();

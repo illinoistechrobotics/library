@@ -23,7 +23,7 @@ import net.java.games.input.*;
 import net.java.games.input.Component.Identifier;
 
 //TODO:
-//find out if joystick is unpluged in linux
+//find out if joystick is unplugged in linux
 //refresh joysticks in linux
 
 public class Joystick extends Thread {
@@ -90,7 +90,11 @@ public class Joystick extends Thread {
 		run = true;
 		while(run){
 			try{
-				joy.poll();
+				if(joy.poll()==false){
+					RobotEvent joy_ev = new RobotEvent(EventEnum.ROBOT_EVENT_JOY_STATUS,(short)0,0);
+					queue.put(joy_ev);
+					return;
+				}
 			}
 			catch(Exception e){
 				System.err.println("Can not open joystick");
@@ -247,11 +251,12 @@ public class Joystick extends Thread {
 					}
 				}
 				catch(Exception e){
+					System.out.println("Error");
 				}
 			}
 			
 			try{
-				Thread.sleep(5);
+				Thread.sleep(10);
 			}
 			catch(Exception e){	
 			}
@@ -316,7 +321,7 @@ public class Joystick extends Thread {
 			ev.setValue((int)(joy.getComponent(Identifier.Button._11).getPollData()));
 			dis.updateButtonGUI(ev);
 		}
-		if(System.getProperty("os.name").contains("nux")){
+		else if(System.getProperty("os.name").contains("nux")){
 			ev.setCommand(EventEnum.ROBOT_EVENT_JOY_BUTTON);
 			ev.setIndex((short)0);
 			ev.setValue((int)(joy.getComponent(Identifier.Button.TRIGGER).getPollData()));
@@ -390,6 +395,7 @@ public class Joystick extends Thread {
 		dis.updateHatGUI(ev);			
 	}
 	
+
 	boolean checkJoystick(){
 		if(System.getProperty("os.name").contains("win")){
 			DirectInputEnvironmentPlugin diep = new DirectInputEnvironmentPlugin();

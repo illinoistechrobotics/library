@@ -6,8 +6,8 @@ public class RobotQueue {
 		public RobotEvent data;
 		public Node next;
 		
-		public Node(RobotEvent data){
-			this.data = data;
+		public Node(RobotEvent d){
+			this.data = d;
 		}
 	}
 	
@@ -27,8 +27,8 @@ public class RobotQueue {
 		return this.size;
 	}
 	
-	public void put(RobotEvent data){
-		while(!this.add(data)){
+	public void put(RobotEvent d){
+		while(!this.add(d)){
 			try{
 				Thread.sleep(5);
 			}
@@ -38,11 +38,12 @@ public class RobotQueue {
 		}
 	}
 	
-	public synchronized boolean add(RobotEvent data){
+	public synchronized boolean add(RobotEvent da){
 		if(size >= max_size){
 			return false;
 		}
-		Node temp = new Node(data);
+		RobotEvent newda = new RobotEvent(da.getCommand(),da.getIndex(),da.getValue());
+		Node temp = new Node(newda);
 		size++;
 		if(last == null){
 			first = temp;
@@ -52,8 +53,13 @@ public class RobotQueue {
 			last.next = temp;
 			last = temp;
 		}
+		Node cursor = first;
+		while(cursor!=null){
+			cursor = cursor.next;
+		}
 		return true;
 	}
+	
 	
 	public void putOverride(RobotEvent data){
 		while(!this.addOverride(data)){
@@ -67,8 +73,9 @@ public class RobotQueue {
 	}
 	
 	//overrides a command with the same command and index with the new value
-	public synchronized boolean addOverride(RobotEvent data){
-		Node temp = new Node(data);
+	public synchronized boolean addOverride(RobotEvent da){
+		RobotEvent newda = new RobotEvent(da.getCommand(),da.getIndex(),da.getValue());
+		Node temp = new Node(newda);
 		Node cursor = first;
 		while(cursor != null){
 			if(cursor.data.getCommand() == temp.data.getCommand() &&
@@ -94,7 +101,7 @@ public class RobotQueue {
 	}
 	
 	public RobotEvent take(){
-		RobotEvent temp;
+		RobotEvent temp = null;
 		while(true){
 			temp = this.poll();
 			if(temp == null){
@@ -116,7 +123,7 @@ public class RobotQueue {
 			return null;
 		}
 		else{
-			RobotEvent tmp;
+			RobotEvent tmp = null;
 			tmp = first.data;
 			first = first.next;
 			size --;
@@ -132,4 +139,5 @@ public class RobotQueue {
 		first = null;
 		last = null;
 	}
+	
 }

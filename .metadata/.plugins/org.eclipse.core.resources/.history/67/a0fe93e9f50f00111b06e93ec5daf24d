@@ -93,6 +93,7 @@ public class Communication implements SerialPortEventListener {
 		i=0;
 		while (portEnum2.hasMoreElements()){
 			portId[i] = (CommPortIdentifier) portEnum2.nextElement();
+			System.out.println("Test");
 		}
 		return portId;
 	}
@@ -182,7 +183,7 @@ public class Communication implements SerialPortEventListener {
 		        ev.setValue((int)data[3]);
 		        checksum = data[4];
 
-		        int checksum2 = (((byte)(ev.getCommand().getValue()) + (byte)ev.getIndex() +(byte)ev.getValue() + (byte)(ev.getValue() >>8)) % 255);
+				int checksum2 = (int)(((int)ev.getCommand().getValue() + (int)ev.getIndex() + (int)(ev.getValue() & 0x00FF) + (int)(ev.getValue() >> 8)) % 255);
 
 		        if(checksum2 == checksum){
 		            //log event received
@@ -198,6 +199,9 @@ public class Communication implements SerialPortEventListener {
 	public synchronized void sendEvent(RobotEvent ev){
 		try{
 			output.write(ev.toStringSend().getBytes());   //write needs a byte array instead of a string
+			long milli = (long)(1.0/((float)serialPort.getBaudRate()/(8.0*16.0))*1000.0);
+			long nano = (long)(1.0/((float)serialPort.getBaudRate()/(8.0*16.0))*1000000000.0) - milli*1000000;
+			Thread.sleep((int)milli,(int)nano);
 		}
 		catch(Exception e){
 		}

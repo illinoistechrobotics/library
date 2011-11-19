@@ -19,19 +19,21 @@
 void timer(robot_queue *q) {
   static unsigned long  last_sent_1hz = 0;
   static unsigned long  last_sent_10hz = 0;
-  static unsigned long  last_sent_20hz = 0;
+  static unsigned long  last_sent_25hz = 0;
   static unsigned long  last_sent_50hz = 0;
   static unsigned long  last_sent_100hz = 0;
   static unsigned int power_led_state = 0;
   
   robot_event evt;
   evt.command = ROBOT_EVENT_TIMER;
+  evt.value = 0;
   //1hz and 10hz timers used by default to use other timer define them in robot.h
   if(millis() - last_sent_1hz >= 1000){   //1 hertz 1000 millis
     last_sent_1hz= millis();
     send_alive_signal();
   #ifdef TIMER_1HZ_
-    on_1hz_timer(&event);
+    evt.index = 1;
+    on_1hz_timer(&evt);
   #endif
   }
   // used for failsafe mode
@@ -39,7 +41,8 @@ void timer(robot_queue *q) {
     last_sent_10hz = millis();
     comm_watchdog();
   #ifdef TIMER_10HZ_
-    on_10hz_timer(&event);  
+    evt.index = 2;
+    on_10hz_timer(&evt);  
   #endif
   #ifdef WATCHDOG_
     wdt_reset(); //watchdog timer reset 
@@ -55,22 +58,25 @@ void timer(robot_queue *q) {
     }
   #endif
   }
-#ifdef TIMER_20HZ_  
-  if(millis() - last_sent_20hz >= 50){
-    last_sent_20hz = millis();
-    on_20hz_timer(&event);
+#ifdef TIMER_25HZ_  
+  if(millis() - last_sent_25hz >= 40){
+    last_sent_25hz = millis();
+    evt.index = 3;
+    on_25hz_timer(&evt);
   }
 #endif
 #ifdef TIMER_50HZ_  
   if(millis() - last_sent_50hz >= 20){
     last_sent_50hz = millis();
-    on_50hz_timer(&event);
+    evt.index = 4;
+    on_50hz_timer(&evt);
   }
 #endif
 #ifdef TIMER_100HZ_
   if(millis() - last_sent_100hz >= 10){   //100 hertz 10 millis
     last_sent_100hz= millis();
-    on_100hz_timer(&event);
+    evt.index = 5;
+    on_100hz_timer(&evt);
   }
 #endif  
 }

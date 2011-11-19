@@ -26,6 +26,7 @@ public enum EventEnum {
     ROBOT_EVENT_CMD_STOP			(0x03),
     ROBOT_EVENT_CMD_REBOOT			(0x04),
     ROBOT_EVENT_CMD_SHUTDOWN		(0x05),
+    ROBOT_EVENT_CMD_FAILSAFE		(0x06),
     
     ROBOT_EVENT_NET                 (0x10), // Remote information
     ROBOT_EVENT_NET_STATUS_OK		(0x11), 
