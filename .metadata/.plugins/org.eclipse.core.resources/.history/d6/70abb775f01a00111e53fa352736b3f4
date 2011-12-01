@@ -143,7 +143,7 @@ public class Communication implements SerialPortEventListener {
 		        if(newline <= start){
 		            if(count == BUF_SIZE){ //buf full an no valid datagram found, clear the buffer
 		                //need to copy the stuff after the start byte to the beginning
-		                if((count - start) <= 128){
+		                if((count - start) <= 256){
 		                    System.arraycopy(buf, start, buf, 0, count-start);
 		                    count = count-start;
 		                    start = 0;
@@ -160,7 +160,7 @@ public class Communication implements SerialPortEventListener {
 		        
 		        if(buf[start] == '$'){
 		        	buf[newline] = '\0';
-		        	System.out.println(new String(buf,start+1,newline-start));
+		        	System.out.println(new String(buf,start,newline-start));
 		        }
 
 		        //found valid datagram

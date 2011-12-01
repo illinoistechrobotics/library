@@ -37,12 +37,14 @@ public enum EventEnum {
     ROBOT_EVENT_JOY_BUTTON          (0x30), // Button presses
     ROBOT_EVENT_JOY_HAT				(0x31), // D-pad pressed
     ROBOT_EVENT_JOY_STATUS			(0x32), // Joystick status
+    
     ROBOT_EVENT_TIMER               (0x40), // Timer events
     ROBOT_EVENT_MOTOR               (0x50), // Motor events
     ROBOT_EVENT_ADC                 (0x60), // ADC events
     ROBOT_EVENT_SET_VAR             (0x70), // Set variable events
     ROBOT_EVENT_READ_VAR            (0x80), // Read variable events
 	ROBOT_EVENT_VAR					(0x90); // Send variable
+    
     // Feel free to add more commands but set different values. Try to do it with the available commands first 
     // Don't remove events please 
     

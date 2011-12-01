@@ -1,8 +1,0 @@
-package general;
-
-public class Log {
-
-	public Log(String fileName){
-		
-	}
-}

@@ -23,8 +23,8 @@
 #define SerComm Serial    //used to make it easy to change different serial ports such on the mega you can change to Serial1 or Serial2 if you want
 
 //#define TIMER_1HZ_      //1 hz and 10 hz timers still run but user functions are not called if not defined
-//#define TIMER_10HZ_ 
-//#define TIMER_25HZ_     //uncomment to run code at the specifed hz
+#define TIMER_10HZ_ 
+#define TIMER_25HZ_     //uncomment to run code at the specifed hz
 //#define TIMER_50HZ_ 
 //#define TIMER_100HZ_ 
 #define POWER_LED_        //blinks a led implemented in timer loop and pin specifed below
@@ -35,6 +35,7 @@
 #endif
 
 int failsafeMode = true;
+int failsafePermanent = false;  //places the arduino in a "permanent" failsafe mode such that having a network connection will not bring it out unless ROBOT_EVENT_CMD_START is sent
 int failcount = 255;
 
 #define QUEUE_SIZE 128    //change if you need a lager queue
@@ -57,6 +58,7 @@ enum {
     ROBOT_EVENT_JOY_BUTTON          = 0x30, // Button presses
     ROBOT_EVENT_JOY_HAT             = 0x31, // Hat movement/D-pad
     ROBOT_EVENT_JOY_STATUS          = 0x32, // Joystick Status
+    
     ROBOT_EVENT_TIMER		    = 0x40, // Timer events
     ROBOT_EVENT_MOTOR	   	    = 0x50, // Motor events
     ROBOT_EVENT_ADC		    = 0x60, // ADC events

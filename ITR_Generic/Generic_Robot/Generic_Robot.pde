@@ -106,6 +106,5 @@ void loop() {
 //failsafe_mode will run at 10hz untill communications is restored 
 void failsafe_mode() {
   failsafeMode = true; 
-  
 }
 

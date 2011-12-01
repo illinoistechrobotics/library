@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="24" version="2.0">
+<workbench progressCount="23" version="2.0">
 <workbenchAdvisor/>
-<window height="738" maximized="true" width="841" x="525" y="0">
+<window height="738" maximized="true" width="841" x="623" y="-9">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -19,6 +19,7 @@
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.wb.core.guiEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
@@ -34,48 +35,30 @@
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
-<part id="4"/>
-<part id="5"/>
-<part id="6"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Timer.java" partName="Timer.java" path="C:/Users/abirylo/Documents/ITR CODE/library/ITR_Generic/GenericComputer/general/Timer.java" title="Timer.java" tooltip="ITR_Generic/GenericComputer/general/Timer.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITR_Generic/GenericComputer/general/Timer.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1303" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Display.java" partName="Display.java" path="C:/Users/abirylo/Documents/ITR CODE/library/ITR_Generic/GenericComputer/gui/Display.java" title="Display.java" tooltip="ITR_Generic/GenericComputer/gui/Display.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITR_Generic/GenericComputer/gui/Display.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="14386" selectionTopPixel="5395"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1447" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Joystick.java" partName="Joystick.java" path="C:/Users/abirylo/Documents/ITR CODE/library/ITR_Generic/GenericComputer/general/Joystick.java" title="Joystick.java" tooltip="ITR_Generic/GenericComputer/general/Joystick.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITR_Generic/GenericComputer/general/Joystick.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3030" selectionTopPixel="841"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4124" selectionTopPixel="1327"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EventEnum.java" partName="EventEnum.java" path="C:/Users/abirylo/Documents/ITR CODE/library/ITR_Generic/GenericComputer/general/EventEnum.java" title="EventEnum.java" tooltip="ITR_Generic/GenericComputer/general/EventEnum.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITR_Generic/GenericComputer/general/EventEnum.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1411" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2028" selectionTopPixel="184"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Communication.java" partName="Communication.java" path="C:/Users/abirylo/Documents/ITR CODE/library/ITR_Generic/GenericComputer/general/Communication.java" title="Communication.java" tooltip="ITR_Generic/GenericComputer/general/Communication.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Communication.java" partName="Communication.java" path="C:/Users/abirylo/Documents/ITR CODE/library/ITR_Generic/GenericComputer/general/Communication.java" title="Communication.java" tooltip="ITR_Generic/GenericComputer/general/Communication.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITR_Generic/GenericComputer/general/Communication.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Events.java" partName="Events.java" path="C:/Users/abirylo/Documents/ITR CODE/library/ITR_Generic/GenericComputer/genericRobot/Events.java" title="Events.java" tooltip="ITR_Generic/GenericComputer/genericRobot/Events.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITR_Generic/GenericComputer/genericRobot/Events.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2661" selectionTopPixel="818"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RobotQueue.java" partName="RobotQueue.java" path="C:/Users/abirylo/Documents/ITR CODE/library/ITR_Generic/GenericComputer/general/RobotQueue.java" title="RobotQueue.java" tooltip="ITR_Generic/GenericComputer/general/RobotQueue.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ITR_Generic/GenericComputer/general/RobotQueue.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1268" selectionTopPixel="866"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4251" selectionTopPixel="1747"/>
 </editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Warnings (1 item)"/>
-</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="386" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="379"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -232,8 +215,8 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@5eaed3e0" ratio="0.9256757" ratioLeft="548" ratioRight="44" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@5eaed3e0" ratio="0.66825396" ratioLeft="421" ratioRight="209" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.jdt.ui.JavadocView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
 <page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
@@ -253,171 +236,175 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/genericRobot/Events.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/Joystick.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/Timer.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/gui/Display.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/EventEnum.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/genericRobot/ITR_Computer.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/gui/Display.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/Communication.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/Timer.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/gui/Display.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/Joystick.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/EventEnum.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/Communication.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/genericRobot/Events.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/RobotQueue.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/Communication.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/RobotEvent.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/RobotQueue.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/EventEnum.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/gui/Display.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wb.core.guiEditor" path="/ITR_Generic/GenericComputer/gui/Display.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/Joystick.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/genericRobot/Events.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/RobotQueue.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/Communication.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/genericRobot/ITR_Computer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/EventEnum.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/Joystick.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ITR_Generic/GenericComputer/general/Timer.java"/>
 </editors>
-<item historyLabel="Events.java" index="0">
-<position info="not_deleted" x="3057" y="0"/>
-</item>
-<item historyLabel="Events.java" index="0">
-<position info="not_deleted" x="3001" y="0"/>
-</item>
-<item historyLabel="Events.java" index="0">
-<position info="not_deleted" x="3057" y="0"/>
-</item>
-<item historyLabel="Events.java" index="0">
-<position info="not_deleted" x="2931" y="0"/>
-</item>
-<item historyLabel="EventEnum.java" index="4">
-<position info="not_deleted" x="1267" y="0"/>
-</item>
-<item historyLabel="Timer.java" index="2">
-<position info="not_deleted" x="2765" y="0"/>
-</item>
-<item historyLabel="Display.java" index="3">
-<position info="not_deleted" x="15843" y="0"/>
-</item>
-<item historyLabel="Events.java" index="0">
-<position info="not_deleted" x="2931" y="0"/>
-</item>
-<item historyLabel="EventEnum.java" index="4">
-<position info="not_deleted" x="1267" y="0"/>
-</item>
-<item historyLabel="Timer.java" index="2">
-<position info="not_deleted" x="2765" y="0"/>
-</item>
-<item historyLabel="Joystick.java" index="1">
-<position info="not_deleted" x="13582" y="0"/>
-</item>
-<item historyLabel="Display.java" index="3">
-<position info="not_deleted" x="15843" y="0"/>
-</item>
-<item historyLabel="Events.java" index="0">
-<position info="not_deleted" x="2931" y="0"/>
-</item>
-<item historyLabel="EventEnum.java" index="4">
-<position info="not_deleted" x="1377" y="0"/>
-</item>
-<item historyLabel="Events.java" index="0">
-<position info="not_deleted" x="2121" y="0"/>
-</item>
-<item historyLabel="Display.java" index="3">
-<position info="not_deleted" x="17936" y="0"/>
-</item>
-<item historyLabel="Events.java" index="0">
-<position info="not_deleted" x="2121" y="0"/>
-</item>
-<item historyLabel="EventEnum.java" index="4">
-<position info="not_deleted" x="1377" y="0"/>
-</item>
-<item historyLabel="Timer.java" index="2">
-<position info="not_deleted" x="2524" y="0"/>
-</item>
-<item historyLabel="EventEnum.java" index="4">
-<position info="not_deleted" x="1205" y="0"/>
-</item>
-<item historyLabel="Timer.java" index="2">
-<position info="not_deleted" x="2524" y="0"/>
-</item>
-<item historyLabel="Joystick.java" index="1">
-<position info="not_deleted" x="989" y="0"/>
-</item>
-<item historyLabel="ITR_Computer.java" index="5">
+<item historyLabel="Communication.java" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Display.java" index="6">
-<position info="not_deleted" x="3993" y="0"/>
-</item>
-<item historyLabel="Communication.java" index="7">
-<position info="not_deleted" x="2960" y="0"/>
-</item>
-<item historyLabel="Display.java" index="6">
-<position info="not_deleted" x="3993" y="0"/>
-</item>
-<item historyLabel="Communication.java" index="7">
-<position info="not_deleted" x="2960" y="0"/>
-</item>
-<item historyLabel="Display.java" index="6">
-<position info="not_deleted" x="3993" y="0"/>
-</item>
-<item historyLabel="Communication.java" index="7">
-<position info="not_deleted" x="2703" y="0"/>
-</item>
-<item historyLabel="Display.java" index="6">
-<position info="not_deleted" x="3993" y="0"/>
-</item>
-<item historyLabel="Display.java" index="6">
-<position info="not_deleted" x="3829" y="0"/>
-</item>
-<item historyLabel="Communication.java" index="7">
-<position info="not_deleted" x="2902" y="0"/>
-</item>
-<item historyLabel="Display.java" index="6">
-<position/>
-</item>
-<item historyLabel="Communication.java" index="7">
-<position info="not_deleted" x="2902" y="0"/>
-</item>
-<item historyLabel="Communication.java" index="7">
-<position/>
-</item>
-<item historyLabel="Communication.java" index="7">
-<position info="not_deleted" x="2937" y="0"/>
-</item>
-<item historyLabel="Display.java" index="6">
-<position info="not_deleted" x="3973" y="0"/>
-</item>
-<item historyLabel="Communication.java" index="7">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Timer.java" index="8">
-<position info="not_deleted" x="1303" y="0"/>
-</item>
-<item historyLabel="Display.java" index="9">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Joystick.java" index="10">
-<position info="not_deleted" x="3030" y="0"/>
-</item>
-<item historyLabel="EventEnum.java" index="11">
-<position info="not_deleted" x="1411" y="0"/>
-</item>
-<item historyLabel="Communication.java" index="12">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Events.java" index="13">
+<item historyLabel="Events.java" index="3">
 <position info="not_deleted" x="3101" y="0"/>
 </item>
-<item historyLabel="RobotQueue.java" index="14">
+<item historyLabel="RobotQueue.java" index="4">
 <position info="not_deleted" x="1268" y="0"/>
 </item>
-<item historyLabel="Events.java" index="13">
+<item historyLabel="Events.java" index="3">
 <position/>
 </item>
-<item historyLabel="Display.java" index="9">
+<item historyLabel="Display.java" index="0">
 <position info="not_deleted" x="14386" y="0"/>
 </item>
-<item historyLabel="Joystick.java" index="10">
+<item historyLabel="Joystick.java" index="1">
 <position info="not_deleted" x="3030" y="0"/>
 </item>
+<item historyLabel="Display.java" index="0">
+<position info="not_deleted" x="14386" y="0"/>
+</item>
+<item historyLabel="Events.java" index="3">
+<position/>
+</item>
+<item historyLabel="Communication.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="RobotEvent.java" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="RobotQueue.java" index="7">
+<position info="not_deleted" x="1419" y="0"/>
+</item>
+<item historyLabel="RobotEvent.java" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="RobotEvent.java" index="6">
+<position info="not_deleted" x="2749" y="0"/>
+</item>
+<item historyLabel="RobotEvent.java" index="6">
+<position info="not_deleted" x="2813" y="0"/>
+</item>
+<item historyLabel="RobotQueue.java" index="7">
+<position info="not_deleted" x="770" y="0"/>
+</item>
+<item historyLabel="RobotEvent.java" index="6">
+<position info="not_deleted" x="2813" y="0"/>
+</item>
+<item historyLabel="EventEnum.java" index="8">
+<position info="not_deleted" x="1411" y="0"/>
+</item>
+<item historyLabel="RobotEvent.java" index="6">
+<position info="not_deleted" x="2452" y="0"/>
+</item>
+<item historyLabel="Events.java" index="3">
+<position info="not_deleted" x="2661" y="0"/>
+</item>
+<item historyLabel="Communication.java" index="5">
+<position info="not_deleted" x="6280" y="0"/>
+</item>
+<item historyLabel="RobotEvent.java" index="6">
+<position info="not_deleted" x="2385" y="0"/>
+</item>
+<item historyLabel="RobotQueue.java" index="7">
+<position info="not_deleted" x="770" y="0"/>
+</item>
+<item historyLabel="Communication.java" index="5">
+<position info="not_deleted" x="6280" y="0"/>
+</item>
+<item historyLabel="Communication.java" index="5">
+<position info="not_deleted" x="3977" y="0"/>
+</item>
+<item historyLabel="Communication.java" index="5">
+<position info="not_deleted" x="3984" y="0"/>
+</item>
+<item historyLabel="Communication.java" index="5">
+<position/>
+</item>
+<item historyLabel="Communication.java" index="5">
+<position/>
+</item>
 <item historyLabel="Display.java" index="9">
 <position info="not_deleted" x="14386" y="0"/>
 </item>
-<item active="true" historyLabel="Events.java" index="13">
-<position/>
+<item historyLabel="Display.java" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Display.java" index="10">
+<position info="not_deleted" x="13291" y="0"/>
+</item>
+<item historyLabel="Communication.java" index="5">
+<position info="not_deleted" x="5022" y="0"/>
+</item>
+<item historyLabel="Communication.java" index="5">
+<position info="not_deleted" x="5111" y="0"/>
+</item>
+<item historyLabel="Communication.java" index="5">
+<position info="not_deleted" x="5236" y="0"/>
+</item>
+<item historyLabel="Communication.java" index="5">
+<position info="not_deleted" x="5223" y="0"/>
+</item>
+<item historyLabel="Communication.java" index="5">
+<position info="not_deleted" x="4349" y="0"/>
+</item>
+<item historyLabel="EventEnum.java" index="8">
+<position info="not_deleted" x="1411" y="0"/>
+</item>
+<item historyLabel="Joystick.java" index="11">
+<position info="not_deleted" x="4124" y="0"/>
+</item>
+<item historyLabel="Display.java" index="10">
+<position info="not_deleted" x="13291" y="0"/>
+</item>
+<item historyLabel="RobotEvent.java" index="6">
+<position info="not_deleted" x="2385" y="0"/>
+</item>
+<item historyLabel="Events.java" index="12">
+<position info="not_deleted" x="2661" y="0"/>
+</item>
+<item historyLabel="RobotQueue.java" index="13">
+<position info="not_deleted" x="770" y="0"/>
+</item>
+<item historyLabel="Communication.java" index="14">
+<position info="not_deleted" x="4349" y="0"/>
+</item>
+<item historyLabel="ITR_Computer.java" index="15">
+<position info="not_deleted" x="1133" y="0"/>
+</item>
+<item historyLabel="Communication.java" index="14">
+<position info="not_deleted" x="4349" y="0"/>
+</item>
+<item historyLabel="EventEnum.java" index="16">
+<position info="not_deleted" x="2028" y="0"/>
+</item>
+<item historyLabel="Communication.java" index="14">
+<position info="not_deleted" x="4030" y="0"/>
+</item>
+<item historyLabel="EventEnum.java" index="16">
+<position info="not_deleted" x="2028" y="0"/>
+</item>
+<item historyLabel="Joystick.java" index="17">
+<position info="not_deleted" x="4124" y="0"/>
+</item>
+<item historyLabel="Timer.java" index="18">
+<position info="not_deleted" x="1447" y="0"/>
+</item>
+<item active="true" historyLabel="Communication.java" index="14">
+<position info="not_deleted" x="4030" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -439,6 +426,21 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="Events.pde" tooltip="ITR_Generic/Generic_Robot/Events.pde">
+<persistable path="/ITR_Generic/Generic_Robot/Events.pde"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ITR_Computer.java" tooltip="ITR_Generic/GenericComputer/genericRobot/ITR_Computer.java">
+<persistable path="/ITR_Generic/GenericComputer/genericRobot/ITR_Computer.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wb.core.guiEditor" name="Display.java" tooltip="ITR_Generic/GenericComputer/gui/Display.java">
+<persistable path="/ITR_Generic/GenericComputer/gui/Display.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="Generic_Robot.pde" tooltip="ITR_Generic/Generic_Robot/Generic_Robot.pde">
+<persistable path="/ITR_Generic/Generic_Robot/Generic_Robot.pde"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RobotEvent.java" tooltip="ITR_Generic/GenericComputer/general/RobotEvent.java">
+<persistable path="/ITR_Generic/GenericComputer/general/RobotEvent.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RobotQueue.java" tooltip="ITR_Generic/GenericComputer/general/RobotQueue.java">
 <persistable path="/ITR_Generic/GenericComputer/general/RobotQueue.java"/>
 </file>
@@ -454,14 +456,8 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Joystick.java" tooltip="ITR_Generic/GenericComputer/general/Joystick.java">
 <persistable path="/ITR_Generic/GenericComputer/general/Joystick.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Display.java" tooltip="ITR_Generic/GenericComputer/gui/Display.java">
-<persistable path="/ITR_Generic/GenericComputer/gui/Display.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Timer.java" tooltip="ITR_Generic/GenericComputer/general/Timer.java">
 <persistable path="/ITR_Generic/GenericComputer/general/Timer.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ITR_Computer.java" tooltip="ITR_Generic/GenericComputer/genericRobot/ITR_Computer.java">
-<persistable path="/ITR_Generic/GenericComputer/genericRobot/ITR_Computer.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Log.java" tooltip="ITR_Generic/GenericComputer/general/Log.java">
 <persistable path="/ITR_Generic/GenericComputer/general/Log.java"/>
@@ -471,12 +467,6 @@
 </file>
 <file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Controller.class" tooltip="net.java.games.input.Controller">
 <persistable org.eclipse.jdt.ui.ClassFileIdentifier="=ITR_Generic/lib\/jinput.jar&lt;net.java.games.input(Controller.class"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="Events.pde" tooltip="ITR_Generic/Generic_Robot/Events.pde">
-<persistable path="/ITR_Generic/Generic_Robot/Events.pde"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RobotEvent.java" tooltip="ITR_Generic/GenericComputer/general/RobotEvent.java">
-<persistable path="/ITR_Generic/GenericComputer/general/RobotEvent.java"/>
 </file>
 </mruList>
 </workbench>

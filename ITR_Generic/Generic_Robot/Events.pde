@@ -64,12 +64,12 @@ void on_1hz_timer(robot_event *ev){
 
 // timer that runs each 100 milliseconds
 void on_10hz_timer(robot_event *ev){
-  
+
 }
 
 //place code that has to be run every 20hz
 void on_25hz_timer(robot_event *ev){
-  
+
 }
 
 //place code that has to be run every 50hz
@@ -85,26 +85,25 @@ void on_100hz_timer(robot_event *ev){
 }
 
 // on_command_code is called when the remote computer sends a command datagram
-boolean failsafePerMode = false; //this puts the robot into pernament failsafeMode untill a Robot_Event_CMD_start is recieved
 void on_command_code(robot_event *ev) {
   switch(ev->command) {
   case ROBOT_EVENT_CMD_NOOP:
-    if(!failsafePerMode){
+    if(!failsafePermanent){
       failcount = 0;
       failsafeMode = false;
     }
     break;
   case ROBOT_EVENT_CMD_START:
     failsafeMode = false;
-    failsafePerMode = false;
+    failsafePermanent = false;
     break;
   case ROBOT_EVENT_CMD_STOP:
     break;
-    failsafePerMode = true;
+    failsafePermanent = true;
     failsafe_mode();
   case ROBOT_EVENT_CMD_FAILSAFE:
     break;
-    failsafePerMode = true;
+    failsafePermanent = true;
     failsafe_mode();
   case ROBOT_EVENT_CMD_SHUTDOWN:
     //don't know if we need/want it but here it is

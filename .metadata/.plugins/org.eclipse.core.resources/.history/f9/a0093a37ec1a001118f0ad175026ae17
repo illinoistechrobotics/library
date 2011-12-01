@@ -120,7 +120,10 @@ public class Communication implements SerialPortEventListener {
 	private int newline = 0;
 	public synchronized void serialEvent(SerialPortEvent oEvent) {
 		if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
-			try {	
+			try {
+				if(newline !=0){
+					System.arraycopy(buf, newline, buf, 0, count-newline);
+				}			
 				int available = input.available();
 				if(count < BUF_SIZE){
 		            count = count + input.read(buf, count, (available > BUF_SIZE-count) ? BUF_SIZE-count : available);
@@ -143,24 +146,14 @@ public class Communication implements SerialPortEventListener {
 		        if(newline <= start){
 		            if(count == BUF_SIZE){ //buf full an no valid datagram found, clear the buffer
 		                //need to copy the stuff after the start byte to the beginning
-		                if((count - start) <= 128){
+		                if((count - start) <= 16){
 		                    System.arraycopy(buf, start, buf, 0, count-start);
 		                    count = count-start;
 		                    start = 0;
 		                    newline = 0;
 		                }
-		                else{ //buf full and last start byte is more than max packet size clear all of the buffer
-		                    count = 0;    //no need to copy since the buf is grabage 
-		                    start = 0;
-		                    newline = 0;
-		                }
 		            }
 		            return;
-		        }
-		        
-		        if(buf[start] == '$'){
-		        	buf[newline] = '\0';
-		        	System.out.println(new String(buf,start+1,newline-start));
 		        }
 
 		        //found valid datagram

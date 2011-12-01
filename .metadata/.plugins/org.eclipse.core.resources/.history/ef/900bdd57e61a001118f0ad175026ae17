@@ -42,7 +42,7 @@ public class RobotQueue {
 		if(size >= max_size){
 			return false;
 		}
-		RobotEvent newda = da.copy();
+		RobotEvent newda = new RobotEvent(da.getCommand(),da.getIndex(),da.getValue());
 		Node temp = new Node(newda);
 		size++;
 		if(last == null){
