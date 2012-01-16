@@ -69,15 +69,15 @@ public class RobotEvent {
 	 * Start byte is U binary(01010101)
 	 */
 	public String toStringSend(){
-		int checksum = (int)(((int)command.getValue()&0xFF + (int)index&0xFF + (int)(value & 0x00FF) + (int)((value&0xFF00) >> 8)) % 255);
+		int checksum = (int)(((command.getValue()&0xFF) + (int)(index&0xFF) + (int)(value & 0x00FF) + (int)(((value&0xFF00) >> 8)&0xFF)) % 256);
 		StringBuffer st = new StringBuffer("U,");
-		st.append(Integer.toString(command.getValue()&0xFF,16));
+		st.append(Integer.toString(command.getValue()&0x000000FF,16));
 		st.append(",");
-		st.append(Integer.toString(index&0xFF, 16));
+		st.append(Integer.toString(index&0x00FF, 16));
 		st.append(",");
-		st.append(Integer.toString(value&0xFFFF,16));
+		st.append(Integer.toString(value&0x0000FFFF,16));
 		st.append(",");
-		st.append(Integer.toString(checksum&0xFF,16));
+		st.append(Integer.toString(checksum&0x000000FF,16));
 		st.append("\n");
 		return st.toString();
 	}

@@ -26,9 +26,9 @@ int open_serial(unsigned long b) {
 // 	return - 0 on failure, non-zero otherwise
 void send_event(robot_event *ev) {
 
-  byte checksum = (unsigned char)((ev->command + ev->index + byte(ev->value) + byte(ev->value >>8)) % 255);
+  unsigned char checksum = ((unsigned char)(ev->command + ev->index + (ev->value&0x00FF) + (((ev->value&0xFF00) >>8)&0x00FF)) % 0xFF);
 
-  SerComm.print(0x55,BYTE);                     //Start byte 'U'
+  SerComm.write(0x55);                          //Start byte 'U'
   SerComm.print(',');
   SerComm.print(ev->command,HEX);               //command byte
   SerComm.print(',');
@@ -117,7 +117,7 @@ int xbee_recv_event(robot_queue *q){
   }
   while(&newbuf[i-1] != &buf[newline]);
 
-  unsigned int checksum = ((unsigned char)data[1] + (unsigned char)data[2] + byte(data[3]) + byte(data[3] >> 8)) % 255;
+  unsigned int checksum = ((unsigned char)data[1] + (unsigned char)data[2] + byte(data[3]) + byte(data[3] >> 8)) % 256;
 
   if(checksum == data[4]){
     robot_event ev;

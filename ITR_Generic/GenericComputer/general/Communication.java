@@ -189,7 +189,7 @@ public class Communication implements SerialPortEventListener {
 		        ev.setValue((int)data[3]);
 		        checksum = data[4];
 
-				int checksum2 = (int)(((int)ev.getCommand().getValue()&0xFF + (int)ev.getIndex()&0xFF + (int)(ev.getValue() & 0x00FF) + (int)((ev.getValue()&0xFF00) >> 8)) % 255);
+				int checksum2 = (int)(((int)(ev.getCommand().getValue()&0x000000FF) + (int)(ev.getIndex()&0x000000FF) + (int)(ev.getValue()&0x000000FF) + (int)((ev.getValue()&0x0000FF00) >> 8)) % 256);
 
 		        if(checksum2 == checksum){
 		            //log event received
