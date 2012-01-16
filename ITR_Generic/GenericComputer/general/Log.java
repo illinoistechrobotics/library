@@ -22,10 +22,57 @@
  */
 
 package general;
+import java.io.*;
 
 public class Log {
+	FileWriter out = null;
+	public Log(){
+		build(null);
+	}
+	public Log(String in){
+		build(in);
+	}
 
-	public Log(String fileName){
-		
+	public void write(RobotEvent envIn){
+		try{
+			//write the event to the file as a csv string
+			out.write(envIn.toString()+"\n");
+		}
+		catch(IOException broke){
+			System.out.println("Error!");
+		}
+	}
+	public void close()
+	{
+		try{
+			out.flush();
+			out.close();
+		}
+		catch(IOException error){
+			
+		}
+	}
+	private void build(String in){
+		if(in == null){
+			in = "log";
+		}
+		int counter = 0;
+		try{
+			//try every extension to "log-" sequentially until there is no file
+			while(true){
+				FileReader check = new FileReader(in+"-"+counter+".txt");
+				++counter;
+			}
+		}
+		catch(FileNotFoundException e){
+			try{
+				//define the output as the counter FileWriter failed at
+				out = new FileWriter(in+"-"+counter+".txt");
+			}
+			catch(IOException ex){
+				
+			}
+		}
 	}
 }
+
